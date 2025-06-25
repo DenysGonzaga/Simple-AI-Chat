@@ -1,5 +1,7 @@
 version: "3.8"
 
+name: simple_ia_chat
+
 services:
   ollama:
     image: ollama/ollama
@@ -7,8 +9,23 @@ services:
     ports:
       - "11434:11434"
     volumes:
-      - ollama-data:/root/.ollama
+      - ollama_data:/root/.ollama
     restart: unless-stopped
+    networks:
+      - ollama_net
+
+  streamlit:
+    build: ./streamlit_webapp/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama
+    networks:
+      - ollama_net
 
 volumes:
-  ollama-data:
+  ollama_data:
+
+networks:
+  ollama_net:
+    driver: bridge

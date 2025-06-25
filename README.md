@@ -1,19 +1,26 @@
 # Simple AI Chat
-A simple AI chat using Ollama e Streamlit with Docker.
+A simple AI chat using Ollama, Streamlit and Docker.
 
-## Versions
+## Software Versions
 
-Docker version 27.5.1
-Python 3.13
+| Software         | Version |
+|------------------|---------|
+| Docker           | 27.5.1  |
+| Python           | 3.13    |
+| streamlit        | 1.46.0  |
+| langchain        | 0.3.26  |
+| langchain-ollama | 0.3.3   |
 
 ## Running
 
-Running containers: 
+Start the containers.
 ```bash
 docker compose up -d
 ```
 
-Pushing llama3.2 model:
+Before starting chat, do you need push the <b>llama3.2</b> model.
 ```bash
 docker exec -it ollama ollama pull llama3.2
-```bash
+```
+
+The Streamlit based app running on http://localhost:8000
